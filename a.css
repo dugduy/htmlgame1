@@ -18,6 +18,7 @@ button{
     border-radius: 10px;
     background-color: dodgerblue;
     transition-duration: 0.4s;
+    padding: 10px;
 }
 button:hover{
     color: dodgerblue;

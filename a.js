@@ -34,11 +34,11 @@ const canvas=document.querySelector('canvas')
         // default: console.log(code)
     }}
         })
-        for (i=1;i<=10;i++){
+        for (i=1;i<=100;i++){
             ctx.fillStyle='red'
             red_obj.push({
-                x: Math.floor(Math.random()*100),
-                y: i*50
+                x: Math.floor(Math.random()*500),
+                y: Math.floor(Math.random()*500),
             })
             ctx.fillRect(red_obj[red_obj.length-1]['x'],red_obj[red_obj.length-1]['y'],10,10)
         }
