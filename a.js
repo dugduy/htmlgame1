@@ -23,7 +23,7 @@ const canvas=document.querySelector('canvas')
             }
             })
         }
-        window.addEventListener('keydown',(e)=>{
+        document.addEventListener('keydown',(e)=>{
             if (!isgameover){
             var code = e.keyCode;
     switch (code) {
@@ -34,14 +34,30 @@ const canvas=document.querySelector('canvas')
         // default: console.log(code)
     }}
         })
-        for (i=1;i<=100;i++){
-            ctx.fillStyle='red'
-            red_obj.push({
-                x: Math.floor(Math.random()*500),
-                y: Math.floor(Math.random()*500),
+        var maplines=map.split('\n')
+        ctx.fillStyle='red'
+        for (let i = 0; i < maplines.length; i++) {
+            const line = maplines[i];
+            for (let index = 0; index < line.length; index++) {
+                const char = line[index];
+                if (char=='.'){
+                    red_obj.push({
+                x: Math.floor((index)*10),
+                y: Math.floor((i)*10),
             })
+            console.log(red_obj[red_obj.length-1])
             ctx.fillRect(red_obj[red_obj.length-1]['x'],red_obj[red_obj.length-1]['y'],10,10)
+                }
+            }            
         }
+        // for (i=1;i<=100;i++){
+            // ctx.fillStyle='red'
+            // red_obj.push({
+            //     x: Math.floor(Math.random()*canvas.width),
+            //     y: Math.floor(Math.random()*canvas.height),
+            // })
+            // ctx.fillRect(red_obj[red_obj.length-1]['x'],red_obj[red_obj.length-1]['y'],10,10)
+        // }
         document.querySelector('button').onclick=function(){
             location.reload()
         }
